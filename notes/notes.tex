@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb, fourier}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{wasysym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[a4paper,top=3cm, bottom=3cm, margin=2.5cm]{geometry}
+
+\newcommand{\aggiunto}[1]{\textcolor{blue}{#1}}
+
+\title{Personal notes}
+
+\begin{document}
+\maketitle
+
+\section{Derivations of Ragazzoni 2020}
+
+\subsection{Geometry}
+Satellite orbital plane has inclination $\phi_\text{max}$ wrt equator, i.e.\ $\phi_\text{max}$ is the highest latitude on the surface where the satellite passes at the zenit.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Schermata da 2022-03-07 13-07-32"}
+\end{figure}
+
+\noindent
+The height above the surface is $h$ and the Earth radius $R$.\\
+
+\noindent
+The surface wrapped by the satellite around the earth is a spherical zone $\text{area} = 2\pi\times \text{radius}\times\text{height}$ of area
+\begin{equation}
+	S = 2\pi (R+h)\times 2(R+h)\sin\phi_\text{max}=4\pi (R+h)^2 \sin\phi_\text{max}
+\end{equation}
+
+\noindent
+\paragraph{Satellites above the horizon.} An observer in a point $P$ well inside the area wrapped by the satellite will see a limited of the total surface, i.e.\ the spherical cusp given by the intersection of the satellite are with the horizon plane in $P$
+\begin{equation}
+	S_1 = 2\pi (R+h)h
+\end{equation}
+
+\noindent
+For a population of satellites that share the same $\phi_\text{max}$ an $h$ the fraction of satellites above the horizon is
+\begin{equation}
+	\eta_1 =\frac{S_1}{S} = \frac{1}{2\sin\phi_\text{max}}\frac{h}{R+h}
+\end{equation}
+In the limit of low-altitude orbit $h\ll R$ and
+\begin{equation}
+	\eta_1\approx \frac{1}{2\sin\phi_\text{max}}\frac{h}{R}
+\end{equation}
+
+\noindent
+\paragraph{Satellites close to the zenit.} In the typical case we are interested on satellite with a zenital angle $z<z_\text{max}$. The relative fraction of satellite close to the zenit in low altitude regime is only
+\begin{equation}
+	\eta_2 \approx \frac{1}{2\sin\phi_\text{max}}\frac{h^2}{R^2}\tan^2 z_\text{max}
+\end{equation}
+i.e.\ drastically reduced.
+
+\paragraph{Satellite visibility.} To be visible a satellite must be illuminated by the Sun. Relation between $h$ and the satellite-earth-sun phase angle $\Psi$ is
+\begin{equation}
+	\cos\Psi = \frac{R}{R+h}
+\end{equation}
+
+\aggiunto{%
+\section{Equivalent for meteors}
+\subsection{Geometry/visibility}
+A meteor has an height $h$ above the point $Q$ on the (spherical) surface of the Earth.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=5cm]{photo_2022-03-07_18-39-35}
+\end{figure}
+The angular separation between $Q$ and the observing site $P$ is $\theta$. $O$ is the center of the Earth, $M$ the position of the meteor and $M'$ its projection over the vertical of $P$. We have
+\begin{equation}
+\begin{split}
+	&MM' = (R+h)\sin\theta\\
+	&PM' =(R+h)\cos\theta-R
+\end{split}
+\end{equation}
+between the observed angular zenit distance $z$ and the other parameters is
+\begin{equation}
+	\tan z = \frac{(R+h)\sin\theta}{(R+h)\cos\theta -R}
+\end{equation}
+To be meaningful, the denominator at the right hand side must be positive, i.e.\
+\begin{equation}
+	\cos\theta \ge \frac{R}{R+h}
+\end{equation}
+which set the visibility limit in terms of phase angle between the meteor and the observed, wrt the Earth.
+Note when $\cos\theta\to R/(R+h)$ then $\tan z\to \pi/2$ i.e.\ the meteor is observed at the horizon.
+%
+\paragraph{Low altitude approximation.} The formula above becomes
+\begin{equation}
+	\tan z \approx \frac{\sin\theta}{\cos\theta -1} = \tan\left(\frac{\theta}{2}\right)\rightarrow\ z\approx \theta/2
+\end{equation}
+in fact if $(R+h)\approx R$ we can act as if earth surface and the spherical surface at the height of the meteor were the same one. Then the $z$ is a circumference angle while $\theta$ is a center angle insisting on the same arc $\widearc{PQ}$ so they will be one half of the other.
+The visibility limit becomes
+\begin{equation}
+	\cos\theta\ge \left(1+\frac{h}{R}\right)^{-1}\approx 1-\frac{h}{R}
+\end{equation}
+Ablation typically starts at $80-\SI{90}{km}$ [Ceplecha+98] so assuming $(h+R)\approx R$ is legit at first approximation.
+%
+}
+
+\section{Kinematics and coordinate conversion}
+
+\end{document}

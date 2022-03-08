@@ -10,36 +10,39 @@
 \usepackage[a4paper,top=3cm, bottom=3cm, margin=2.5cm]{geometry}
 
 \newcommand{\aggiunto}[1]{\textcolor{blue}{#1}}
+\newcommand{\diff}{\text{d}}
+\newcommand{\difft}[1]{\ensuremath{\frac{\diff #1}{\diff t}}}
 
 \title{Personal notes}
 
 \begin{document}
 \maketitle
 
+\aggiunto{
 \section{Derivations of Ragazzoni 2020}
-
+%
 \subsection{Geometry}
 Satellite orbital plane has inclination $\phi_\text{max}$ wrt equator, i.e.\ $\phi_\text{max}$ is the highest latitude on the surface where the satellite passes at the zenit.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"Schermata da 2022-03-07 13-07-32"}
 \end{figure}
-
+%
 \noindent
 The height above the surface is $h$ and the Earth radius $R$.\\
-
+%
 \noindent
 The surface wrapped by the satellite around the earth is a spherical zone $\text{area} = 2\pi\times \text{radius}\times\text{height}$ of area
 \begin{equation}
 	S = 2\pi (R+h)\times 2(R+h)\sin\phi_\text{max}=4\pi (R+h)^2 \sin\phi_\text{max}
 \end{equation}
-
+%
 \noindent
 \paragraph{Satellites above the horizon.} An observer in a point $P$ well inside the area wrapped by the satellite will see a limited of the total surface, i.e.\ the spherical cusp given by the intersection of the satellite are with the horizon plane in $P$
 \begin{equation}
 	S_1 = 2\pi (R+h)h
 \end{equation}
-
+%
 \noindent
 For a population of satellites that share the same $\phi_\text{max}$ an $h$ the fraction of satellites above the horizon is
 \begin{equation}
@@ -49,20 +52,20 @@ In the limit of low-altitude orbit $h\ll R$ and
 \begin{equation}
 	\eta_1\approx \frac{1}{2\sin\phi_\text{max}}\frac{h}{R}
 \end{equation}
-
+%
 \noindent
 \paragraph{Satellites close to the zenit.} In the typical case we are interested on satellite with a zenital angle $z<z_\text{max}$. The relative fraction of satellite close to the zenit in low altitude regime is only
 \begin{equation}
 	\eta_2 \approx \frac{1}{2\sin\phi_\text{max}}\frac{h^2}{R^2}\tan^2 z_\text{max}
 \end{equation}
 i.e.\ drastically reduced.
-
+%
 \paragraph{Satellite visibility.} To be visible a satellite must be illuminated by the Sun. Relation between $h$ and the satellite-earth-sun phase angle $\Psi$ is
 \begin{equation}
 	\cos\Psi = \frac{R}{R+h}
 \end{equation}
+}
 
-\aggiunto{%
 \section{Equivalent for meteors}
 \subsection{Geometry/visibility}
 A meteor has an height $h$ above the point $Q$ on the (spherical) surface of the Earth.
@@ -98,9 +101,98 @@ The visibility limit becomes
 	\cos\theta\ge \left(1+\frac{h}{R}\right)^{-1}\approx 1-\frac{h}{R}
 \end{equation}
 Ablation typically starts at $80-\SI{90}{km}$ [Ceplecha+98] so assuming $(h+R)\approx R$ is legit at first approximation.
-%
-}
 
-\section{Kinematics and coordinate conversion}
+\subsection{Intrinsic motion}
+\paragraph{Shape of the trajectory.} Before entering the atmosphere the motion of a meteoroid consist on its intrinsic solar orbital motion + acceleration due to Earth attraction. Typical velocity ranges from \SI{11.2}{km/s} (pure Earth attraction) to \SI{72.8}{km/s} (solar +  Earth attraction).\\
+
+\noindent
+During the ablation the trajectory is a straight line, because we neglect
+\begin{itemize}
+	\item the effect of gravitational attraction of the Earth, which is much smaller than the air drag exerted by the atmosphere;
+	\item the effect of the curvature of the planet. This is because during the burn meteors covers hundreds of km $\ll R$.
+\end{itemize}
+
+\noindent
+In general the motion along this straight line is not uniform as the meteoroid is being slew down by air drag.
+
+\paragraph{Equation of motion.} Motion on the trajectory is described by the set of differential equation [Cepleca+98]
+\begin{equation}
+	\begin{split}
+	&a = \difft{v}=-\Gamma A \rho_m^{-2/3}\rho m^{-1/3} v^2\\
+	&\dot m = \difft{m}=-\frac{\Lambda A}{2\xi}\rho_m^{-2/3} m^{2/3} v^3
+	\end{split}
+\end{equation}
+where
+\begin{itemize}
+	\item $\Gamma$ is the drag coefficient (fraction of momentum transferred to the air from the body, ranges from 0 for no exchange of momentum, to 2 for a perfectly elastic impact),
+	\item $\Lambda$ the heat transfer coefficient (fraction of kinetic energy converted into heat),
+	\item $\xi$ the energy for the ablation of a unit mass,
+	\item $A = S m^{-2/3}\rho_m^{2/3}=S/V^{2/3}$ the shape factor ($S$ the cross-section, for cube $A=1$, for a sphere $A\approx1.2$, getting more elongated toward the direction of motion makes $A$ grow),
+	\item $\rho_m$ the bulk density,
+	\item $m$ the mass and
+	\item $v$ the velocity.
+\end{itemize}
+
+\noindent
+Usually independent parameters are gathered in the two terms [Cepleca+98]
+\begin{equation}
+	\begin{split}
+	&\sigma =\frac{\Lambda}{2\xi \Gamma}\\
+	&K = \Lambda A\rho_m^{-2/3}
+	\end{split}
+\end{equation}
+respectively the ablation and the shape-density coefficients. Motion equation become [adapted from Cepleca+98]
+\begin{equation}
+	\begin{split}
+	&a = -K\rho m^{-1/3} v^2\\
+	&\dot m = -K\sigma m^{2/3} v^3
+	\end{split}
+\end{equation}
+
+\paragraph{Dependence on the height.}
+Note that $\rho=\rho(h)=\rho[h(t)]$, i.e.\ we need a further relation to express the variation of atmospheric density as a function of the height. A good approximation of the atmospheric density profile is
+\begin{equation}
+	\rho = \rho_0 e^{-h/H}
+\end{equation}
+where the scale height $H$ is
+\begin{equation}
+	H=\frac{P_0}{g\rho_0}\sim \SI{8}{km}
+\end{equation}
+with $P$ the pressure. The pedix represents the value at the sea level, for $h=0$.\\
+
+\noindent
+We introduce the third equation of motion
+\begin{equation}
+	v_h =\difft{h}=\cos(z_0) v
+\end{equation}
+where $z_0$ is the zenit angle of the meteor radiant (i.e.\ inclination of the trajector wrt the local vertical).\\
+
+\paragraph{Final equations.}
+The final set of ODE that solve the motion of a meteor is
+\begin{equation}
+	\begin{split}
+	&a = -K\rho_0 e^{-h/H} m^{-1/3} v^2\\
+	&\dot m = -K\sigma m^{2/3} v^3\\
+	&v_h = \cos z_0 v
+	\end{split}
+\end{equation}
+with $K$ and $\sigma$ that comes from the properties and composition of the body, $z_0$ from the pre-atmospheric motion while $\rho_0$ and $H$ are two constants dependent on the atmospheric model.\\
+
+\noindent
+Note we assumed, more or less implicitly:
+\begin{itemize}
+	\item straight-line trajectory (see above);
+	\item constant inclination $z_0$ (direction of the vertical does not changes significantly below the short meteor path);
+	\item $\sigma$ and $K$ constant. It is assumed that the shape and properties does not change significantly during ablation.
+\end{itemize}
+
+\subsection{Apparent motion}
+Due to the short path and low altitude approximation, the motion can be naturally expressed using a rectangular coordinate system in the neighborhood of the meteor, i.e.\ assuming locally the Earth to be flat right below the meteor.\\
+
+\noindent
+An object at height $h$ can actually be observed up to a distance $\approx\sqrt{2Rh}$ (in low altitude approximation) from its projection on the ground. In the case of meteors with height up to a hundred of km, they can be observed up to \SI{e3}{km}, which is no longer negligible wrt the curvature.\\
+
+\noindent
+If $\theta$ is the angular separation between the vertical of the meteor and the observer the apparent inclination of the meteor is $z=z_0-\theta$
 
 \end{document}

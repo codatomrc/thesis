@@ -186,6 +186,12 @@ Note we assumed, more or less implicitly:
 	\item $\sigma$ and $K$ constant. It is assumed that the shape and properties does not change significantly during ablation.
 \end{itemize}
 
+\paragraph{Solution.} An example for $\rho_m=\SI{3000}{kg/\centi\meter\cubed}$, $\Lambda=1$, $A=1$, $\sigma=\SI{0.03}{s^2/km^2}$ and $z_0=\ang{30}$. Initial condition velocity \SI{25}{km/s}, mass \SI{1.0}{kg} and \SI{150}{km} of altitude. Integration over \SI{10}{s}, \num{300} time-steps.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{./index}
+\end{figure}
+
 \subsection{Apparent motion}
 Due to the short path and low altitude approximation, the motion can be naturally expressed using a rectangular coordinate system in the neighborhood of the meteor, i.e.\ assuming locally the Earth to be flat right below the meteor.\\
 
@@ -194,5 +200,92 @@ An object at height $h$ can actually be observed up to a distance $\approx\sqrt{
 
 \noindent
 If $\theta$ is the angular separation between the vertical of the meteor and the observer the apparent inclination of the meteor is $z=z_0-\theta$
+
+\section{Meteor background -- simplified}
+Assumptions:
+\begin{itemize}
+	\item Constant isotropic trajectories for any observer on the Earth.
+	\item Cumulative density flux $\phi$ (meteors/area/s) as a function of the absolute magnitude (100\, km) $M$
+	\begin{equation}
+		\log\phi = -a+b M
+	\end{equation}
+	with $a$ and $b$ positive constant. From [Cook+78].
+	\item Cumulative density flux $\phi_m$ as a function of the initial mass $m$
+	\begin{equation}
+	\log\phi_m = -a_m-b_m \log m
+	\end{equation}
+	with $a_m$ and $b_m$ positive constant. From [Cook+78].
+\end{itemize}
+
+\paragraph{Procedure.} A tentative approach
+\begin{enumerate}
+	\item Choose the limit altitude $h_\text{max}$ where meteors can no longer occur (too thin atmosphere).
+	\item Compute the range of visibility of an object at $h_\text{max}$. In LAA it is simply
+	\begin{equation}
+		d_\text{max} \approx\sqrt{2Rh_\text{max}}
+	\end{equation}
+	\item Populate the circular area of radius $d_\text{max}$ with a number of meteoroids as a function of the mass provided by $\phi_m$. Inverting the log-log relation
+	\begin{equation}
+		\phi_m = A m^{b_m}
+	\end{equation}
+	with $A=e^{-a_m}$ a new constant.
+	\item Assign to each object with a given mass an initial velocity and a random orientation (due to isotropy). Initial velocity can be sampled from a uniform distribution in the range 11.2-72.8\,km/s for example.
+	\item Integrate the motion of each particle starting from $h_\text{max}$.
+	\item Project the motion into the observer spherical reference frame.
+\end{enumerate}
+
+\paragraph{Alternative (statistical).} Very wide area and (\num{6e6} cells) each with thousands of object require statistical treatment.
+\begin{enumerate}
+	\item For [Cook+78] the meteor flux through the atmosphere respect
+	\begin{equation}
+		\log\phi = -17.89+0.534 M
+	\end{equation}
+	where $\Phi$ is the number flux (meteor/cm$^2$/s) with an absolute magnitude lower (i.e.\ brighter) than $M$.
+	\item Assume a reference height $h^*$ at which we assume all the ablation occurs, i.e.\ as if all the meteor background comes from a spherical shell around the Earth at height $h^*$ from the surface.
+	\item Consider a surface unit on the shall at zenit distance $z$ from seen from the observing point. The distance from the observer is
+	\begin{equation}
+		\rho = -R\cos z+\sqrt{(R+h^*)^2-R^2\sin^2 z}\approx\frac{h^*}{\cos z}
+	\end{equation}
+	\item The relation between intrinsic 100\,km magnitude and the apparent one is
+	\begin{equation}
+		m = M +5\log\left(\frac{\rho}{\SI{100}{km}}\right) = M -10 + 5 \log\left(h^*\right)-5\log(\cos z)
+	\end{equation}
+	with $h^*$ in km.
+	\item Flux of meteor with magnitude $M$ (within an infinitesimal bin of width $\diff M$) are
+	\begin{equation}
+		\varphi (M)=\frac{\diff \Phi}{\diff M}=b\ln 10\Phi(M)
+	\end{equation}
+	\item We can pass from magnitudes to intensities with
+	\begin{equation}
+		I = 10^{-0.4M}
+	\end{equation}
+	Total intensity per area unit per time unit will be the sum over all meteor of all all magnitudes:
+	\begin{equation}
+		I_\text{tot}=\int_{-\infty}^{+\infty}\varphi(M)I(M)\diff M =  10^{-a}\frac{b}{b-0.4}\left[10^{(b-0.4)M}\right]_{M_\text{min}}^{M_\text{max}}
+	\end{equation}
+	we can set $M_\text{min}\to -\infty$ and have no problems with the boundaries since $b>0.4$ and the exponential will tend to 0, when evaluated at $-\infty$.
+	\item We pass again to total magnitudes computing the total absolute magnitude from from a surface and time unit.
+	\begin{equation}
+		M_\text{tot} = -2.5\log I_\text{tot}=2.5a-2.5\log\left(\frac{b}{b-0.4}\right)-2.5(b-0.4)M_\text{max}
+	\end{equation}
+	We can take the approximation
+	\begin{equation}
+		M_\text{tot}\approx 2.5a-2.5\log\left(\frac{b}{b-0.4}\right)\sim \SI{40}{mag}
+	\end{equation}
+	which is valid because $(b-0.4)\lesssim 1$ and the last term is negligible. Note also $M_\text{max}$ is limited: lower masses produces traces of lower magnitudes, in we go below a given mass threshold the particle is too small to mechanically interact with the atmosphere.
+	
+	\item At $\rho=\SI{100}{km}$ by definition $M=m$. At this distance, if we neglect projection effects, a unit surface is seen under the angular area
+	\begin{equation}
+		\Omega = (206265/100)^2 = \SI{4.25e6}{arcsec^2} \sim 0.5\times\ang{0.5}
+	\end{equation}
+	
+	\item Since surface brightness does not depend on the distance (both flux and the solid angle scales with $1/\rho^2$) at any position
+	\begin{equation}
+		S = M_\text{tot}+2.5\log\Omega = 40+6 = \SI{46}{mag}
+	\end{equation}
+
+	
+	
+\end{enumerate}
 
 \end{document}

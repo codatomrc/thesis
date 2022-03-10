@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.12.23)  9 MAR 2022 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.12.23)  10 MAR 2022 12:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1436,108 +1436,125 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Warning: No \author given.
 
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 67.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 67.
-<"Schermata da 2022-03-07 13-07-32".png, id=32, 785.93625pt x 378.41376pt>
-File: "Schermata da 2022-03-07 13-07-32".png Graphic file (type png)
-<use "Schermata da 2022-03-07 13-07-32".png>
-Package pdftex.def Info: "Schermata da 2022-03-07 13-07-32".png  used on input 
-line 67.
-(pdftex.def)             Requested size: 364.19667pt x 175.36006pt.
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 67.
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Schermata da 2022-03-07 
-13-07-32.png>]
-<photo_2022-03-07_18-39-35.jpg, id=50, 483.8075pt x 680.5425pt>
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 23.
+<photo_2022-03-07_18-39-35.jpg, id=28, 483.8075pt x 680.5425pt>
 File: photo_2022-03-07_18-39-35.jpg Graphic file (type jpg)
 <use photo_2022-03-07_18-39-35.jpg>
-Package pdftex.def Info: photo_2022-03-07_18-39-35.jpg  used on input line 74.
+Package pdftex.def Info: photo_2022-03-07_18-39-35.jpg  used on input line 27.
 (pdftex.def)             Requested size: 142.26378pt x 200.11447pt.
- [2 <./photo_2022-03-07_18-39-35.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 47.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./photo_2022-03-07_18-39-3
+5.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 111
-.
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 66.
+
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
-) [3]
-Overfull \hbox (13.73135pt too wide) in paragraph at lines 143--145
+) [2]
+Overfull \hbox (13.73135pt too wide) in paragraph at lines 98--100
 \T1/futs/m/n/12 respectively the ab-la-tion and the shape-density co-ef-fi-cien
 ts. Mo-tion equa-tion be-come [adapted
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--180
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
  []
 
-<./index.png, id=74, 614.295pt x 591.20876pt>
+<./index.png, id=54, 614.295pt x 591.20876pt>
 File: ./index.png Graphic file (type png)
 <use ./index.png>
-Package pdftex.def Info: ./index.png  used on input line 192.
+Package pdftex.def Info: ./index.png  used on input line 147.
 (pdftex.def)             Requested size: 318.66948pt x 306.69058pt.
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
 
  []
 
-[5 <./index.png>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
+<photo_2022-03-10_12-04-43.jpg, id=68, 764.8575pt x 371.3875pt>
+File: photo_2022-03-10_12-04-43.jpg Graphic file (type jpg)
+<use photo_2022-03-10_12-04-43.jpg>
+Package pdftex.def Info: photo_2022-03-10_12-04-43.jpg  used on input line 164.
+
+(pdftex.def)             Requested size: 227.62206pt x 110.52173pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./index.png>]
+Overfull \hbox (2.09pt too wide) in paragraph at lines 205--207
+\T1/futs/m/n/12 with ve-loc-ity in m/s and mass in grams. In par-tic-u-lar the 
+max-i-mum mag-ni-tude (faintest
+ []
+
+[5 <./photo_2022-03-10_12-04-43.jpg>]
+<S_z.png, id=94, 389.455pt x 262.9825pt>
+File: S_z.png Graphic file (type png)
+<use S_z.png>
+Package pdftex.def Info: S_z.png  used on input line 247.
+(pdftex.def)             Requested size: 318.66948pt x 215.18958pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 250.
+[6] [7 <./S_z.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 250.
  (./notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 250.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 250.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 699739051A3D0997CA29A437F44E8D62;443.
+(rerunfilecheck)             Checksum: EBE49B95A7F5557393DD5BA0689F53B9;392.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.26395pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 250.
  ) 
 Here is how much of TeX's memory you used:
- 19031 strings out of 492982
- 354261 string characters out of 6134895
+ 19017 strings out of 492982
+ 354072 string characters out of 6134895
  402043 words of memory out of 5000000
- 22314 multiletter control sequences out of 15000+600000
- 657778 words of font info for 184 fonts, out of 8000000 for 9000
+ 22318 multiletter control sequences out of 15000+600000
+ 656819 words of font info for 181 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,18n,38p,10377b,796s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,18n,38p,10377b,849s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/uto
-pia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.
-pfb>
-Output written on notes.pdf (7 pages, 365104 bytes).
+e/texmf-dist/fonts/type1/public/fourier/fourier-alt.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/a
+dobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/
+putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+
+Output written on notes.pdf (7 pages, 303276 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
- 73 named destinations out of 1000 (max. 500000)
- 72 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 135 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -18,55 +18,8 @@
 \begin{document}
 \maketitle
 
-\aggiunto{
-\section{Derivations of Ragazzoni 2020}
-%
-\subsection{Geometry}
-Satellite orbital plane has inclination $\phi_\text{max}$ wrt equator, i.e.\ $\phi_\text{max}$ is the highest latitude on the surface where the satellite passes at the zenit.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\linewidth]{"Schermata da 2022-03-07 13-07-32"}
-\end{figure}
-%
-\noindent
-The height above the surface is $h$ and the Earth radius $R$.\\
-%
-\noindent
-The surface wrapped by the satellite around the earth is a spherical zone $\text{area} = 2\pi\times \text{radius}\times\text{height}$ of area
-\begin{equation}
-	S = 2\pi (R+h)\times 2(R+h)\sin\phi_\text{max}=4\pi (R+h)^2 \sin\phi_\text{max}
-\end{equation}
-%
-\noindent
-\paragraph{Satellites above the horizon.} An observer in a point $P$ well inside the area wrapped by the satellite will see a limited of the total surface, i.e.\ the spherical cusp given by the intersection of the satellite are with the horizon plane in $P$
-\begin{equation}
-	S_1 = 2\pi (R+h)h
-\end{equation}
-%
-\noindent
-For a population of satellites that share the same $\phi_\text{max}$ an $h$ the fraction of satellites above the horizon is
-\begin{equation}
-	\eta_1 =\frac{S_1}{S} = \frac{1}{2\sin\phi_\text{max}}\frac{h}{R+h}
-\end{equation}
-In the limit of low-altitude orbit $h\ll R$ and
-\begin{equation}
-	\eta_1\approx \frac{1}{2\sin\phi_\text{max}}\frac{h}{R}
-\end{equation}
-%
-\noindent
-\paragraph{Satellites close to the zenit.} In the typical case we are interested on satellite with a zenital angle $z<z_\text{max}$. The relative fraction of satellite close to the zenit in low altitude regime is only
-\begin{equation}
-	\eta_2 \approx \frac{1}{2\sin\phi_\text{max}}\frac{h^2}{R^2}\tan^2 z_\text{max}
-\end{equation}
-i.e.\ drastically reduced.
-%
-\paragraph{Satellite visibility.} To be visible a satellite must be illuminated by the Sun. Relation between $h$ and the satellite-earth-sun phase angle $\Psi$ is
-\begin{equation}
-	\cos\Psi = \frac{R}{R+h}
-\end{equation}
-}
 
-\section{Equivalent for meteors}
+\section{Equivalent for meteors of Ragazzoni 2020}
 \subsection{Geometry/visibility}
 A meteor has an height $h$ above the point $Q$ on the (spherical) surface of the Earth.
 \begin{figure}[h]
@@ -101,6 +54,8 @@ The visibility limit becomes
 	\cos\theta\ge \left(1+\frac{h}{R}\right)^{-1}\approx 1-\frac{h}{R}
 \end{equation}
 Ablation typically starts at $80-\SI{90}{km}$ [Ceplecha+98] so assuming $(h+R)\approx R$ is legit at first approximation.
+
+\section{Motion of meteors}
 
 \subsection{Intrinsic motion}
 \paragraph{Shape of the trajectory.} Before entering the atmosphere the motion of a meteoroid consist on its intrinsic solar orbital motion + acceleration due to Earth attraction. Typical velocity ranges from \SI{11.2}{km/s} (pure Earth attraction) to \SI{72.8}{km/s} (solar +  Earth attraction).\\
@@ -202,90 +157,94 @@ An object at height $h$ can actually be observed up to a distance $\approx\sqrt{
 If $\theta$ is the angular separation between the vertical of the meteor and the observer the apparent inclination of the meteor is $z=z_0-\theta$
 
 \section{Meteor background -- simplified}
-Assumptions:
-\begin{itemize}
-	\item Constant isotropic trajectories for any observer on the Earth.
-	\item Cumulative density flux $\phi$ (meteors/area/s) as a function of the absolute magnitude (100\, km) $M$
-	\begin{equation}
-		\log\phi = -a+b M
-	\end{equation}
-	with $a$ and $b$ positive constant. From [Cook+78].
-	\item Cumulative density flux $\phi_m$ as a function of the initial mass $m$
-	\begin{equation}
-	\log\phi_m = -a_m-b_m \log m
-	\end{equation}
-	with $a_m$ and $b_m$ positive constant. From [Cook+78].
-\end{itemize}
 
-\paragraph{Procedure.} A tentative approach
-\begin{enumerate}
-	\item Choose the limit altitude $h_\text{max}$ where meteors can no longer occur (too thin atmosphere).
-	\item Compute the range of visibility of an object at $h_\text{max}$. In LAA it is simply
-	\begin{equation}
-		d_\text{max} \approx\sqrt{2Rh_\text{max}}
-	\end{equation}
-	\item Populate the circular area of radius $d_\text{max}$ with a number of meteoroids as a function of the mass provided by $\phi_m$. Inverting the log-log relation
-	\begin{equation}
-		\phi_m = A m^{b_m}
-	\end{equation}
-	with $A=e^{-a_m}$ a new constant.
-	\item Assign to each object with a given mass an initial velocity and a random orientation (due to isotropy). Initial velocity can be sampled from a uniform distribution in the range 11.2-72.8\,km/s for example.
-	\item Integrate the motion of each particle starting from $h_\text{max}$.
-	\item Project the motion into the observer spherical reference frame.
-\end{enumerate}
-
-\paragraph{Alternative (statistical).} Very wide area and (\num{6e6} cells) each with thousands of object require statistical treatment.
+\paragraph{Procedure.} A tentative approach.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{photo_2022-03-10_12-04-43}
+\end{figure}
 \begin{enumerate}
 	\item For [Cook+78] the meteor flux through the atmosphere respect
 	\begin{equation}
-		\log\phi = -17.89+0.534 M
+		\log\Phi = -a+bM = -17.89+0.534 M
 	\end{equation}
 	where $\Phi$ is the number flux (meteor/cm$^2$/s) with an absolute magnitude lower (i.e.\ brighter) than $M$.
-	\item Assume a reference height $h^*$ at which we assume all the ablation occurs, i.e.\ as if all the meteor background comes from a spherical shell around the Earth at height $h^*$ from the surface.
-	\item Consider a surface unit on the shall at zenit distance $z$ from seen from the observing point. The distance from the observer is
+	
+	
+	\item Assume all the meteors burn in a shell of thickness $\Delta h$ at average height $h$.
+	
+	\item From a point $P$ is observed at direction $z$, wrt the vertical, through the shell. The volume of the shell column of unit area $\diff A$ observed from $P$ is
 	\begin{equation}
-		\rho = -R\cos z+\sqrt{(R+h^*)^2-R^2\sin^2 z}\approx\frac{h^*}{\cos z}
+		\diff V =\diff A\diff\rho \approx\diff A\frac{\Delta h}{\cos z}
 	\end{equation}
-	\item The relation between intrinsic 100\,km magnitude and the apparent one is
+	
+	\item We pass from the cumulative flux $\Phi$ to the differential count $\varphi$ (number of meteor per surface and time unit with a magnitude range between $M$ and $M+\diff M$)
 	\begin{equation}
-		m = M +5\log\left(\frac{\rho}{\SI{100}{km}}\right) = M -10 + 5 \log\left(h^*\right)-5\log(\cos z)
+		\varphi(M) =\frac{\diff \Phi}{\diff M}= \frac{\diff}{\diff M}10^{-a+bM} = 10^{-a} \ln 10 b 10^{bM}
 	\end{equation}
-	with $h^*$ in km.
-	\item Flux of meteor with magnitude $M$ (within an infinitesimal bin of width $\diff M$) are
+	The flux per volume unit $\psi$ will have the same expression but different units.
+	
+	\item The total number of object of magnitude $M$ seen under a unit area $\diff A$ from $P$ is
 	\begin{equation}
-		\varphi (M)=\frac{\diff \Phi}{\diff M}=b\ln 10\Phi(M)
+		\diff N=\psi(M)\diff V = \psi \diff A\frac{\Delta h}{\cos z}
 	\end{equation}
-	\item We can pass from magnitudes to intensities with
+	
+	\item The intensity of a single object with magnitude $M$ is
 	\begin{equation}
 		I = 10^{-0.4M}
 	\end{equation}
-	Total intensity per area unit per time unit will be the sum over all meteor of all all magnitudes:
+	so the total intensity from the volume $\diff V$ is
 	\begin{equation}
-		I_\text{tot}=\int_{-\infty}^{+\infty}\varphi(M)I(M)\diff M =  10^{-a}\frac{b}{b-0.4}\left[10^{(b-0.4)M}\right]_{M_\text{min}}^{M_\text{max}}
+		I_\text{tot} = \int_{M_\text{min}}^{M_\text{max}}\diff N I\diff M = \diff A\frac{\Delta h}{\cos z} \frac{b}{b-0.4} 10^{-a+(b-0.4)M_\text{max}}
 	\end{equation}
 	we can set $M_\text{min}\to -\infty$ and have no problems with the boundaries since $b>0.4$ and the exponential will tend to 0, when evaluated at $-\infty$.
-	\item We pass again to total magnitudes computing the total absolute magnitude from from a surface and time unit.
-	\begin{equation}
-		M_\text{tot} = -2.5\log I_\text{tot}=2.5a-2.5\log\left(\frac{b}{b-0.4}\right)-2.5(b-0.4)M_\text{max}
-	\end{equation}
-	We can take the approximation
-	\begin{equation}
-		M_\text{tot}\approx 2.5a-2.5\log\left(\frac{b}{b-0.4}\right)\sim \SI{40}{mag}
-	\end{equation}
-	which is valid because $(b-0.4)\lesssim 1$ and the last term is negligible. Note also $M_\text{max}$ is limited: lower masses produces traces of lower magnitudes, in we go below a given mass threshold the particle is too small to mechanically interact with the atmosphere.
 	
-	\item At $\rho=\SI{100}{km}$ by definition $M=m$. At this distance, if we neglect projection effects, a unit surface is seen under the angular area
+	\item According to [Blaauw+16] the relation between absolute magnitude and mass is
 	\begin{equation}
-		\Omega = (206265/100)^2 = \SI{4.25e6}{arcsec^2} \sim 0.5\times\ang{0.5}
+		M = -8.75\log(v_\infty)-2.25\log m+11.59
+	\end{equation}
+	with velocity in m/s and mass in grams. In particular the maximum magnitude (faintest meteor) is the one with smallest mass and lowest pre-atmospheric velocity.
+	
+	A conservative approach may consist on considering $v_{\infty,\text{min}}=\SI{11.2}{km/s}$ (escape velocity) and as $m_\text{min}$ the one associated to the smallest meteoroids.
+	Conventionally the boundary between dust and meteoroid is for a size of $\SI{30}{\micro\metre}=\SI{3e-5}{m}$, the boundary under which the body is small enough to dissipate the heat due to atmospheric friction without vaporizing. The equivalent volume, assuming a rocky density of $\SI{3}{g/cm\cubed}$ is
+	\begin{equation}
+		m_\text{min}\approx (\num{3e-5})^3 \cdot 3000 \sim \SI{e-7}{g}
 	\end{equation}
 	
-	\item Since surface brightness does not depend on the distance (both flux and the solid angle scales with $1/\rho^2$) at any position
-	\begin{equation}
-		S = M_\text{tot}+2.5\log\Omega = 40+6 = \SI{46}{mag}
-	\end{equation}
-
+	The final value for the maximum magnitude is (conservatively) $M_\text{max}=\SI{18.37}{mag}$.
 	
+	\item The total magnitude observed from the column will be
+	\begin{equation}
+		M_\text{tot} = -2.5\log I_\text{tot}
+	\end{equation}
+			
+	\item An observer at \SI{100}{km} from the column will see $M=m$ by definition. At this distance it will observe the surface area $\diff A$ under the solid angle
+	\begin{equation}
+		\diff\Omega \cong \frac{\diff A}{\rho^2} 206265^2 = \num{7.037e6}\, \diff A
+	\end{equation}
+	with $\diff A$ in km$^2$ units and $\diff \Omega$ in \si{arcsec\square}.
+	
+	\item By definition the surface brightness at 100\,km is
+	\begin{equation}
+		S = M +2.5\log \Omega
+	\end{equation}
+	But since both the intensity and the solid angle scale with $1/\rho^2$ at the end $S$ will be independent on the distance, i.e.\ we can apply compute $S$ once.
+	
+	In our case
+	\begin{equation}
+		S = -2.5\log\Delta h+2.5\log\cos z+2.5\log\left(\frac{b}{b-0.4}\right)+2.5a-2.5(b-0.4)M_\text{max}-4.69
+	\end{equation}
 	
 \end{enumerate}
+
+\paragraph{Result.}
+If we assume $a$ and $b$ from [Cook+78] a thickness of the shell of $\Delta h =\SI{20}{km}$ and $M_\text{max}$ as above we have $S$ as a function of the zenit angle $z$
+\begin{equation}
+	S(z)= 37.82+2.5\log(\cos z)
+\end{equation}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{S_z}
+\end{figure}
 
 \end{document}
